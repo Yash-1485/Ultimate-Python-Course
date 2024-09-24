@@ -90,3 +90,31 @@
 # # p2=Parent2()
 # c=Child()
 # print(c.a,c.b)
+
+#class methods
+# a=200
+# class Test:
+#     a=10
+#     def __init__(self,a):
+#         self.a=a
+#     @classmethod
+#     def show(self):
+#         print(f"The value of class attribute a is {self.a}")
+#         # print(a)
+# t=Test(100)
+# t.show()
+# print(f"The value of instance attribute a is {t.a}")
+
+#Property decoraters and getters and setters
+class Test:
+    @property
+    def name(self):
+        return self.ename
+    
+    @name.setter
+    def name(self,value):
+        self.ename=value
+t=Test()
+t.name="Yash Parekh"
+print(t.name)
+print(t.ename)
