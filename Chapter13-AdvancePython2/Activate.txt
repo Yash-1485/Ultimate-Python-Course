@@ -1,1 +1,4 @@
 Set-ExecutionPolicy RemoteSigned -Scope Process
+Set-ExecutionPolicy Undefined -Scope Process
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy Undefined -Scope CurrentUser
