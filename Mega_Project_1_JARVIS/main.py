@@ -1,4 +1,4 @@
-import speech_recognition as sr, webbrowser as wb, pyttsx3 as ps, musicLibrary as ms
+import speech_recognition as sr, webbrowser as wb, pyttsx3 as ps, musicLibrary as ms,sys, pyautogui as pg
 music=ms.music
 recognizer=sr.Recognizer()
 engine=ps.init()
@@ -16,6 +16,18 @@ def process_command(c:str):
 
     elif c.lower().startswith('play music'):
         wb.open(music[c.lower().split(' ')[2]])
+    
+    if c.lower()=='forward':pg.hotkey('ctrl','tab')
+    elif c.lower()=='backward':pg.hotkey('ctrl','shift','tab')
+    elif c.lower()=='close tab':pg.hotkey('ctrl','W')    
+    elif c.lower()=='close':pg.hotkey('alt','f4')
+    elif c.lower()=='play' or c.lower()=='pause':pg.press('space')
+    elif c.lower()=='volume down':pg.hotkey('fn','f8')
+    elif c.lower()=='volume up':pg.hotkey('fn','f7')
+    elif c.lower()=='mute':pg.hotkey('fn','f6')
+    elif c.lower()=='scroll up':pg.scroll(-200)
+    elif c.lower()=='scroll down':pg.scroll(200)
+    elif c.lower()=='press':pg.press('enter')
 
 if __name__=="__main__":
     speak("Initializing JARVIS...")
@@ -51,9 +63,9 @@ if __name__=="__main__":
                                 process_command(command)
                             if 'switch off' in command.lower():
                                 speak('Have a good day sir...')
-                                break
+                                sys.exit()
                         except Exception as e:pass
-            elif 'switch off' in word.lower() or 'switch off' in command.lower():
+            elif 'switch off' in word.lower():
                 speak('Have a good day sir...')
                 break
         except Exception as e:print(e)
